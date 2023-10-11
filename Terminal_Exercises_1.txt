@@ -1,0 +1,55 @@
+
+First Set
+
+maxrautenkranz@Maxs-MacBook-Pro Python % clear
+maxrautenkranz@Maxs-MacBook-Pro Python % cd ~
+maxrautenkranz@Maxs-MacBook-Pro ~ % cd Desktop
+maxrautenkranz@Maxs-MacBook-Pro Desktop % mkdir first
+maxrautenkranz@Maxs-MacBook-Pro Desktop % cd first
+maxrautenkranz@Maxs-MacBook-Pro first % touch person.txt
+maxrautenkranz@Maxs-MacBook-Pro first % mv person.txt another.txt
+maxrautenkranz@Maxs-MacBook-Pro first % ls
+another.txt
+maxrautenkranz@Maxs-MacBook-Pro first % cp another.txt copy.txt
+maxrautenkranz@Maxs-MacBook-Pro first % ls
+another.txt	copy.txt
+maxrautenkranz@Maxs-MacBook-Pro first % rm copy.txt
+maxrautenkranz@Maxs-MacBook-Pro first % ls
+another.txt
+maxrautenkranz@Maxs-MacBook-Pro first % cp -r first second
+cp: first: No such file or directory
+maxrautenkranz@Maxs-MacBook-Pro first % cd ..
+maxrautenkranz@Maxs-MacBook-Pro Desktop % cp -r first second
+maxrautenkranz@Maxs-MacBook-Pro Desktop % ls
+maxrautenkranz@Maxs-MacBook-Pro Desktop % ls second    
+another.txt
+maxrautenkranz@Maxs-MacBook-Pro Desktop % rm -rf second
+maxrautenkranz@Maxs-MacBook-Pro Desktop % ls
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Second Set
+
+1. What does the man command do? Type in man rm. How do you scroll and get out?
+    The man command pulls up a manual for whatever command follows. 
+2. Look at the man page for ls. What does the -l flag do? What does the -a flag do?
+    The -l flag gives more information. The -a flag pulls all files, even hidden ones.
+3. How do you jump between words in the terminal?
+    You can jump between words in the terminal with option/alt + arrow keys (left right)
+4. How do you get to the end of a line in terminal?
+    ctrl + e
+5. How do you move your cursor to the beginning in terminal?
+    ctrl + a
+6. How do you delete a word (without pressing backspace multiple times) in terminal?
+    ctrl + w
+7. What is the difference between a terminal and shell?
+    The terminal runs the shell, which is what runs the processes/commands and returns an output.
+8. What is an absolute path?
+    An absolute path tells you the exact spot where a file or folder exists ~/Desktop/Shoes/Nike.html
+9. What is an relative path?
+    A relative path doesn't specify from the root
+10. What is a flag? Give three examples of flags you have used.
+    -rf -l -a
+11. What do the r and f flags do with the rm command?
+    They let you remove a folder that is not empty.
