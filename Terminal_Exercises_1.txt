@@ -32,7 +32,7 @@ maxrautenkranz@Maxs-MacBook-Pro Desktop % ls
 Second Set
 
 1. What does the man command do? Type in man rm. How do you scroll and get out?
-    The man command pulls up a manual for whatever command follows. 
+    The man command pulls up a manual for whatever command follows. Enter lets you scroll. Q lets you get out.
 2. Look at the man page for ls. What does the -l flag do? What does the -a flag do?
     The -l flag gives more information. The -a flag pulls all files, even hidden ones.
 3. How do you jump between words in the terminal?
