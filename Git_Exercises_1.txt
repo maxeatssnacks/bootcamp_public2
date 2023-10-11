@@ -1,0 +1,126 @@
+maxrautenkranz@Maxs-MacBook-Pro Desktop % mkdir learn_git_again
+maxrautenkranz@Maxs-MacBook-Pro Desktop % cd learn_git_again
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % touch third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git init
+Initialized empty Git repository in /Users/maxrautenkranz/Desktop/learn_git_again/.git/
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git add third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit -m "adding third.txt"
+[main (root-commit) f32aff5] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git status
+On branch main
+nothing to commit, working tree clean
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % touch fourth.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	fourth.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit -m "adding fourth.txt"
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	fourth.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git add fourth.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit "adding fourth.txt"
+error: pathspec 'adding fourth.txt' did not match any file(s) known to git
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit -m "adding fourth.txt"
+[main 32fc3b4] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git log
+commit 32fc3b4d71c9760563642a4893191485f974684a (HEAD -> main)
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:11:35 2023 -0500
+
+    adding fourth.txt
+
+commit f32aff52792989f5ca277061181990d65f1bb554
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:10:21 2023 -0500
+
+    adding third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % rm third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit -m "removing third.txt"
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    third.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git log
+commit 32fc3b4d71c9760563642a4893191485f974684a (HEAD -> main)
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:11:35 2023 -0500
+
+    adding fourth.txt
+
+commit f32aff52792989f5ca277061181990d65f1bb554
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:10:21 2023 -0500
+
+    adding third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git rm third.txt
+rm 'third.txt'
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    third.txt
+
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git commit -m "removing third.txt"
+[main 9f37f33] removing third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git log
+commit 9f37f33392335e76d02b3e4231905dddac20fd42 (HEAD -> main)
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:14:09 2023 -0500
+
+    removing third.txt
+
+commit 32fc3b4d71c9760563642a4893191485f974684a
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:11:35 2023 -0500
+
+    adding fourth.txt
+
+commit f32aff52792989f5ca277061181990d65f1bb554
+Author: Max Rautenkranz <Robert.rautenkranz@gmail.com>
+Date:   Tue Oct 10 22:10:21 2023 -0500
+
+    adding third.txt
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git config --global --replace-all core.pager cat
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git config --global
+maxrautenkranz@Maxs-MacBook-Pro learn_git_again % git config --global --list
+user.email=Robert.rautenkranz@gmail.com
+init.defaultbranch=main
+core.pager=cat
+
