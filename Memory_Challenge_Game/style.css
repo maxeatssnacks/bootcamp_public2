@@ -1,0 +1,18 @@
+#game div {
+  border: 1px solid black;
+  width: 12vw;
+  height: 20vh;
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+}
