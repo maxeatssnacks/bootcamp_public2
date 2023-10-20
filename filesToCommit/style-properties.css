@@ -1,0 +1,38 @@
+/* style properties */
+div {
+  background: crimson;
+  color: grey;
+  font-family: Helvetica;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* layout properties */
+div {
+  width: 10%;
+  height: 20%;
+  margin: 10px; 
+  padding: 20px;
+}
+
+/* shorthand properties */
+div {
+  margin-top: 10px ;
+  margin-right: 12px; 
+  margin-bottom: 10px; 
+  margin-left: 8px;
+}
+
+div {
+  margin: 10px 12px 10px 8px;
+}
+
+div {
+  margin: 20px;
+}
+
+div {
+  border: 2px solid grey;
+}
+
+

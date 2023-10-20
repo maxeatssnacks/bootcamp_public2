@@ -1,0 +1,29 @@
+h1 {
+	background: crimson;
+}
+
+body h1 {
+	background: olivedrab;
+}
+.class-style {
+	background: violet;
+}
+
+#id-style {
+	background: dodgerblue;
+}
+
+span {
+	background-color: purple;
+	color: white;
+	text-decoration: line-through;
+	font-size: 3rem;
+	font-family: Helvetica;
+	font-weight: bold;
+	/* margin: 20px;
+  padding: 40px; */
+	padding-top: 20px;
+	border: 8px solid teal;
+	/* border-width: 20px; */
+	border-radius: 10px;
+}
