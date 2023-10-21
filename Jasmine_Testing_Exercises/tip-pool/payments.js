@@ -54,25 +54,18 @@ function appendPaymentTable(curPayment) {
 
   appendTd(newTr, '$' + curPayment.billAmt);
   appendTd(newTr, '$' + curPayment.tipAmt);
-  appendTd(newTr, curPayment.tipPercent + '%');
+  appendTd(newTr, '%' + curPayment.tipPercent);
+
+  appendDeleteBtn(newTr, 'payment');
 
   paymentTbody.append(newTr);
 }
 
 // Create table row element and pass to appendTd with calculated sum of all payment
 function updateSummary() {
-  let tipPercentAvg;
-  let paymentTotal = sumPaymentTotal('tipPercent');
-  let numberOfPayments = Object.keys(allPayments).length;
-
-  if (paymentTotal === 0 && numberOfPayments === 0) {
-    tipPercentAvg = 0;
-  } else {
-    tipPercentAvg = paymentTotal / Object.keys(allPayments).length;
-  }
+  let tipPercentAvg = sumPaymentTotal('tipPercent') / Object.keys(allPayments).length;
 
   summaryTds[0].innerHTML = '$' + sumPaymentTotal('billAmt');
   summaryTds[1].innerHTML = '$' + sumPaymentTotal('tipAmt');
-  summaryTds[2].innerHTML =  Math.round(tipPercentAvg) + '%';
+  summaryTds[2].innerHTML = Math.round(tipPercentAvg) + '%';
 }
-
