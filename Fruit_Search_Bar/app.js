@@ -59,6 +59,7 @@ function useSuggestion(e) {
 //   }
 
 function highlight (e) {
+    console.log('mouseover');
     if (e.target.tagName === 'LI'){
         e.target.classList.add('highlight');
     }
