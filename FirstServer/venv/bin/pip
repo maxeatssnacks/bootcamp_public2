@@ -1,4 +1,4 @@
-#!/Users/maxrautenkranz/Desktop/Bootcamp/bootcamp_public2/FirstServer/venv/bin/python3.12
+#!/Users/maxrautenkranz/Desktop/bootcamp_public2/FirstServer/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
