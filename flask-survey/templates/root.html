@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<h1>Welcome to Surveys.com!</h1>
+<p>To take a survey, click the button below</p>
+<form action="/questions/0" method="get">
+    <button type="submit">Begin Survey</button>
+</form>
+{% endblock %}
