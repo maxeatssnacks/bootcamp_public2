@@ -4,8 +4,8 @@
 
 {% block content %}
 <h1>Thanks for completing the survey!</h1>
-<ul> You answered the following:
-    {% for answer in answers %}
+<ul> <p>You answered the following:</p>
+    {% for answer in session['responses'] %}
     <li>{{answer}}</li>
     {% endfor %}
 </ul>
