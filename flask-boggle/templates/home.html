@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %} Boggle {% endblock %}
+
+{% block content %}
+<h1 class="row">Let's Play Boggle!</h1>
+<section class="row">
+    <form action="/start" method="POST">
+        <p class="">Click the button below and let's get started!</p>
+        <button class="row" id="lil_margin_left" type="submit">Start!</button>
+    </form>
+</section>
+{% endblock %}

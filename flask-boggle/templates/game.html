@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Boggle {% endblock %}
+
+{% block content %}
+<h1 class="row">Boggle</h1>
+<h6 class="row">Hi Score:&nbsp;<span id ="hi_score">{{ session['score'] }}</span>&nbsp;|&nbsp;Games Played: &nbsp;<span id="games_played">{{ session['games_played'] }}</span></h6>
+<h4 class="timer row" id="Time_Remaining">Time Remaining:&nbsp;<span id="timer">60</span> </h4>
+    {% for row in session['board'] %}
+    <div class="row">
+        {% for box in row %}
+        <div class="box box-with-spread">
+            <div class="letter">{{ box }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <form class="forms">
+        <input class="guess" placeholder="Guess word here" type="text" name="guess" id="guess" autocomplete="off" required>
+        <button class="buttons" id="submit_guess" type="submit">Guess</button>
+    </form>
+
+    <section id="score_board">
+        <p>Score: <span id="score">0</span></p>
+        <p>Result: <span id="result"></span></p>
+    </section>
+{% endblock %}

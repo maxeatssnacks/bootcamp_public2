@@ -1,0 +1,107 @@
+body {
+    color: rgb(0, 0, 0);
+    font-family: 'Averta', sans-serif;
+    background-color: rgb(21, 109, 176);
+}
+
+h1 {
+    margin-bottom: -10px;
+    font-size: 48px;
+    color: black;
+    font-family: 'Averta', sans-serif;
+    font-weight: bold;
+}
+
+.timer {
+    margin-top: -10px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    font-family: 'Averta', sans-serif;
+    font-weight: bold;
+}
+
+section {
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: rgb(175, 175, 175);
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.letter {
+    width: 48px;
+    height: 48px;
+    color: black;
+    font-family: 'Averta', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    background-color: rgb(227, 227, 227);
+    text-transform: capitalize;
+    border-radius: 50%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.forms {
+    font-family: 'Averta', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.guess{
+    text-align: center;
+    font-size: 24px;
+}
+
+.buttons {
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+#score_board {
+    font-size: 18px;
+    color: black;
+    font-family: 'Averta', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#lil_margin_left{
+    margin: 0 auto;
+    display: block;
+}
