@@ -20,9 +20,8 @@ class FlaskTests(TestCase):
             self.assertIn('board', session)
             self.assertIsNone(session.get('hi_score'))
             self.assertIsNone(session.get('games_played'))
-            self.assertIn(b'<p>High Score:', response.data)
-            self.assertIn(b'Score:', response.data)
-            self.assertIn(b'Seconds Left:', response.data)
+            self.assertIn(b'Hi Score:', response.data)
+            self.assertIn(b'Games Played:', response.data)
 
     def test_valid_word(self):
         """Test if word is valid by modifying the board in the session"""
