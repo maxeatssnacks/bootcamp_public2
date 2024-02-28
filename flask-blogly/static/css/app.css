@@ -1,12 +1,50 @@
-img {
-    height: 200px;
-    width: 200px;
-}
-
 h1 {
-    color: red;
+    color: #dc3545;
+    text-align: center;
 }
 
 body {
     padding: 5%;
+}
+
+#testing {
+    width: 200px;
+    height: auto;
+  }
+
+.col-3 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+.buttons-container {
+    display: flex;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.detail-button{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.inputs {
+    padding-bottom: 5px;
+}
+
+#delete {
+    display: inline-block;
+    width: auto;
+}
+
+.tags-container {
+    display: flex;
+    list-style-type: none;
+}
+
+.tags-container li {
+    margin-left: 5px;
+    margin-right: 5px;
 }

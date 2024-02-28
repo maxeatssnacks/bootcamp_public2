@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Feed{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Blog Feed</h1>
+    <ul>
+        {% for post in feed %}
+        <h3><a href="/posts/{{post.id}}">{{post.title}}</a></h3>
+        <p>{{post.content}}</p>
+        <ul class="tags-container">
+            <p>Tags:</p>
+            {% for tag in post.tags %}
+                <li><a class="btn btn-primary" href="/tags/{{tag.id}}">{{tag.name}}</a></li>
+            {% endfor %}
+        </ul>
+    <p>by <a href="/users/{{post.user.id}}">{{post.user.full_name()}}</a></p>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
