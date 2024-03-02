@@ -1,0 +1,28 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pet-div {
+    text-align: center;
+    margin: 5px;
+}
+
+.my-image {
+    max-width: 100%;
+    height: auto;
+}
+
+#pet-link {
+    width: 100%;
+}
+
+small {
+    color: red;
+}

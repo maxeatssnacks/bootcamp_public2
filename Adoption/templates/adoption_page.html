@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Adopt!{% endblock %}
+
+{% block content %}
+<div class="title-container">
+    <h1>Adopt a Pet Today!</h1>
+</div>
+<div class="title-container">
+    <a class="btn btn-primary" href="/add">Add Pet</a>
+</div>
+<div class="home-container">
+    <div class="row justify-content-center align-items-center">
+        {% for pet in pets %}
+        <div class="col-md-3 pet-div">
+            {% if pet.photo_url %}
+            <a id="pet-link" href="/pets/{{pet.id}}"><img class="my-image" src="{{pet.photo_url}}"
+                    alt="Photo of {{pet.name}}"></a>
+            {% else %}
+            <a id="pet-link" href="/pets/{{pet.id}}"><img class="my-image" src="/static/adopt_default.jpeg"
+                    alt="Default adopt photo"></a>
+            {% endif %}
+            <a id="pet-link" href="/pets/{{pet.id}}">{{pet.name}}</a>
+            <p><strong>Available</strong></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

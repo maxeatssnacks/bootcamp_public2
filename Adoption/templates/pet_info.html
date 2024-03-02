@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Adopt!{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <h1>{{pet.name}}</h1>
+            <p>Species: {{pet.species.capitalize()}}</p>
+            <p>Age: {{pet.age}}</p>
+            <img class="my-image" src="{{pet.photo_url}}" alt="Image of {{pet.name}}">
+            <form id="edit-pet-form" method="POST">
+                {{ form.hidden_tag() }}
+                {% for field in form
+                if field.widget.input_type != 'hidden' %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field(class_="form-control") }}
+                    {% for error in field.errors %}
+                    <small class="form-text">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <button class="btn btn-success btn-lg" type="submit">Edit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
