@@ -21,7 +21,6 @@ const $navNewStory = $("#nav-new-story");
 const $navFavorites = $("#nav-favorites");
 const $navMyStories = $("#nav-my-stories");
 
-
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
  * calling this, individual components can re-show just what they want.
@@ -59,3 +58,29 @@ console.warn("HEY STUDENT: This program sends many debug messages to" +
   " seeing those helpful debug messages. In your browser console, click on" +
   " menu 'Default Levels' and add Verbose");
 $(start);
+
+function addInputValidation(inputElement) {
+  const errorElementId = inputElement.id + "-error"; // Assumes error elements have IDs corresponding to input IDs with '-error' suffix
+  const errorElement = document.getElementById(errorElementId);
+
+  inputElement.addEventListener("input", function (event) {
+    if (event.target.value.trim() === '') {
+      const errorMessage = "This cannot be blank!";
+      event.target.setCustomValidity(errorMessage);
+      if (errorElement) errorElement.textContent = errorMessage; // Update the text content of the error message element
+      event.target.reportValidity();
+    } else {
+      event.target.setCustomValidity("");
+      if (errorElement) errorElement.textContent = ""; // Clear the error message
+    }
+  });
+}
+
+addInputValidation($("#signup-name").get(0));
+addInputValidation($("#signup-username").get(0));
+addInputValidation($("#signup-password").get(0));
+addInputValidation($("#login-username").get(0));
+addInputValidation($("#login-password").get(0));
+addInputValidation($("#new-story-title").get(0));
+addInputValidation($("#new-story-author").get(0));
+addInputValidation($("#new-story-url").get(0));

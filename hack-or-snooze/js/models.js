@@ -74,7 +74,7 @@ class StoryList {
    */
 
   async addStory(user, newStory) {
-  
+
     const response = await axios({
       url: `${BASE_URL}/stories`,
       method: "POST",
@@ -90,7 +90,7 @@ class StoryList {
 
     let { story } = response.data
 
-    return new Story (
+    return new Story(
       {
         storyId: story.storyId,
         title: story.title,
@@ -109,21 +109,20 @@ class StoryList {
  * User: a user in the system (only used to represent the current user)
  */
 
-class User 
-{
+class User {
   /** Make user instance from obj of user data and a token:
    *   - {username, name, createdAt, favorites[], ownStories[]}
    *   - token
    */
 
   constructor({
-                username,
-                name,
-                createdAt,
-                favorites = [],
-                ownStories = []
-              },
-              token) {
+    username,
+    name,
+    createdAt,
+    favorites = [],
+    ownStories = []
+  },
+    token) {
     this.username = username;
     this.name = name;
     this.createdAt = createdAt;
@@ -144,24 +143,30 @@ class User
    */
 
   static async signup(username, password, name) {
-    const response = await axios({
-      url: `${BASE_URL}/signup`,
-      method: "POST",
-      data: { user: { username, password, name } },
-    });
+    try {
+      const response = await axios({
+        url: `${BASE_URL}/signup`,
+        method: "POST",
+        data: { user: { username, password, name } },
+      });
 
-    let { user } = response.data
+      let { user } = response.data
 
-    return new User(
-      {
-        username: user.username,
-        name: user.name,
-        createdAt: user.createdAt,
-        favorites: user.favorites,
-        ownStories: user.stories
-      },
-      response.data.token
-    );
+      return new User(
+        {
+          username: user.username,
+          name: user.name,
+          createdAt: user.createdAt,
+          favorites: user.favorites,
+          ownStories: user.stories
+        },
+        response.data.token
+      );
+
+    } catch (err) {
+      console.error("signup failed", err);
+      return null
+    }
   }
 
   /** Login in user with API, make User instance & return it.
@@ -171,24 +176,29 @@ class User
    */
 
   static async login(username, password) {
-    const response = await axios({
-      url: `${BASE_URL}/login`,
-      method: "POST",
-      data: { user: { username, password } },
-    });
+    try {
+      const response = await axios({
+        url: `${BASE_URL}/login`,
+        method: "POST",
+        data: { user: { username, password } },
+      });
 
-    let { user } = response.data;
+      let { user } = response.data;
 
-    return new User(
-      {
-        username: user.username,
-        name: user.name,
-        createdAt: user.createdAt,
-        favorites: user.favorites,
-        ownStories: user.stories
-      },
-      response.data.token
-    );
+      return new User(
+        {
+          username: user.username,
+          name: user.name,
+          createdAt: user.createdAt,
+          favorites: user.favorites,
+          ownStories: user.stories
+        },
+        response.data.token
+      );
+    } catch (err) {
+      console.error("login failed", err);
+      return null
+    }
   }
 
   /** When we already have credentials (token & username) for a user,
@@ -217,21 +227,21 @@ class User
       );
     } catch (err) {
       console.error("loginViaStoredCredentials failed", err);
-      return null;
+      return null
     }
   }
 
-  static async favoritingStories(user, clickedStoryId){
+  static async favoritingStories(user, clickedStoryId) {
     const response = await axios({
       url: `${BASE_URL}/users/${user.username}/favorites/${clickedStoryId}`,
       method: "POST",
-      data: {token: user.loginToken}
+      data: { token: user.loginToken }
     })
 
     return response;
   }
 
-  static async unfavoritingStories(user, clickedStoryId){
+  static async unfavoritingStories(user, clickedStoryId) {
     const clickedStory = user.favorites.find(obj => obj.id === clickedStoryId);
     const storyInFavorites = user.favorites.indexOf(clickedStory);
 
@@ -239,12 +249,12 @@ class User
     const response = await axios({
       url: `${BASE_URL}/users/${user.username}/favorites/${clickedStoryId}`,
       method: "DELETE",
-      data: {token: user.loginToken}
+      data: { token: user.loginToken }
     })
     return response;
   }
 
-  static async deletingStories(user, clickedStoryId){
+  static async deletingStories(user, clickedStoryId) {
     const storyToDelete = user.favorites.find(obj => obj.id === clickedStoryId);
     const indexToDelete = user.favorites.indexOf(storyToDelete);
 
@@ -252,12 +262,12 @@ class User
     await axios({
       url: `${BASE_URL}/stories/${clickedStoryId}`,
       method: "DELETE",
-      data: {token: user.loginToken}
+      data: { token: user.loginToken }
     })
     const response = await axios({
       url: `${BASE_URL}/users/${user.username}`,
       method: "GET",
-      params: {token: user.loginToken}
+      params: { token: user.loginToken }
     })
     return response
   }

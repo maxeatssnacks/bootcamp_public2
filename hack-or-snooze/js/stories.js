@@ -25,7 +25,7 @@ function generateStoryMarkup(story) {
   const hostName = story.getHostName();
   try {
     let favoritedStory = currentUser.favorites.find(obj => obj.storyId === story.storyId);
-    if (favoritedStory){
+    if (favoritedStory) {
       return $(`
         <li id="${story.storyId}">
           <i id="star" class="fa fa-star"></i>
@@ -50,7 +50,7 @@ function generateStoryMarkup(story) {
       </li>
     `);
     }
-  } catch (error){
+  } catch (error) {
     return $(`
       <li id="${story.storyId}">
         <i id="star" class="fa fa-star-o"></i>
@@ -64,7 +64,7 @@ function generateStoryMarkup(story) {
     `);
   }
 
-  
+
 }
 
 /** Gets list of stories from server, generates their HTML, and puts on page. */
@@ -113,7 +113,7 @@ async function addStoryFromForm(e) {
   const y = $("#new-story-author").val();
   const z = $("#new-story-url").val();
 
-  let response = await storyList.addStory(currentUser, {title: x, author: y, url: z});
+  let response = await storyList.addStory(currentUser, { title: x, author: y, url: z });
   const $story = generateStoryMarkup(response);
   currentUser.ownStories.push(response);
   $allStoriesList.prepend($story);
@@ -125,23 +125,23 @@ async function addStoryFromForm(e) {
 
 $("#submit-new-story").on("click", addStoryFromForm);
 
-async function clickingStar(e){
+async function clickingStar(e) {
   let clickedStoryId = e.target.parentElement.id;
-  if (e.target.classList.contains("fa-star-o")){
+  if (e.target.classList.contains("fa-star-o")) {
     let response = await User.favoritingStories(currentUser, clickedStoryId);
     currentUser.favorites = [];
-    for (let story of response.data.user.favorites){
+    for (let story of response.data.user.favorites) {
       let addToArray = new Story(story);
       currentUser.favorites.push(addToArray);
     }
   } else if (e.target.classList.contains("fa-star")) {
     let response = await User.unfavoritingStories(currentUser, clickedStoryId);
     currentUser.favorites = [];
-    for (let story of response.data.user.favorites){
+    for (let story of response.data.user.favorites) {
       let addToArray = new Story(story);
       currentUser.favorites.push(addToArray);
     }
-  } 
+  }
   $(this).toggleClass("fa-star-o")
   $(this).toggleClass("fa-star")
 }
@@ -149,11 +149,11 @@ async function clickingStar(e){
 $("body").on("click", "#star", clickingStar);
 
 
-async function clickingTrashCan(e){
+async function clickingTrashCan(e) {
   let clickedStoryId = e.target.parentElement.id;
   const response = await User.deletingStories(currentUser, clickedStoryId);
-  currentUser.ownStories =[];
-  for (let story of response.data.user.stories){
+  currentUser.ownStories = [];
+  for (let story of response.data.user.stories) {
     let addToArray = new Story(story);
     currentUser.ownStories.push(addToArray);
   }

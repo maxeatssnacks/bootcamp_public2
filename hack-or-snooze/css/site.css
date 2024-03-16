@@ -54,7 +54,7 @@ form {
   margin: 8px 18px 0;
 }
 
-form > * {
+form>* {
   margin: 10px 0;
 }
 
@@ -81,7 +81,7 @@ form input:focus {
   box-shadow: 0 0 4px 1px darkgray;
 }
 
-form > button {
+form>button {
   width: 4rem;
   margin: 5px 0 15px 65px;
   border: none;
@@ -94,11 +94,11 @@ form > button {
   transition: all 0.15s;
 }
 
-form > button:hover {
+form>button:hover {
   background-color: dimgray;
 }
 
-form > hr {
+form>hr {
   margin: 0;
   border: 1px solid lightgray;
 }
@@ -121,4 +121,10 @@ form > hr {
     max-width: 900px;
     margin: 8px auto;
   }
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
 }
