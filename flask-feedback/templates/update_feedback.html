@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Feedback {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h1>Update Feedback</h1>
+            <form id="feedback-form" method="POST">
+                {{ form.hidden_tag() }}
+
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {% if field.name == 'title' %}
+                    {{ field(class_='form-control update-me') }}
+                    {% elif field.name == 'content' %}
+                    {{ field(class_='form-control update-me', data_id=feedback.content) }}
+                    {% else %}
+                    {{ field(class_='form-control update-me') }}
+                    {% endif %}
+                    {% if field.errors %}
+                    {% for error in field.errors %}
+                    <div class="invalid-feedback">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

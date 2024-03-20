@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Secret {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <h1 class="text-center">{{info.username}}</h1>
+            <h5 class="text-center">{{info.first_name}} {{info.last_name}} | {{info.email}}</h5>
+            <ul>
+                <h6>Feedback:</h6>
+                {% for f in feedback %}
+                <li id="feedback">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{f.title}}</h5>
+                            <p class="card-text">{{f.content}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-end">
+                                <form class="button-spacing" action="/feedback/{{f.id}}/update" method="POST">
+                                    <button class="btn btn-small btn-outline-primary" type="submit">Edit</button>
+                                </form>
+                                <form class="button-spacing" action="/feedback/{{f.id}}/delete" method="POST">
+                                    <button class="btn btn-small btn-outline-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="d-flex justify-content-center">
+                <form class="button-spacing" action="/users/{{info.username}}/feedback/add" method="POST">
+                    <button class="btn btn-primary" type="submit">Add Feedback</button>
+                </form>
+                <form class="button-spacing" action="/users/{{info.username}}/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

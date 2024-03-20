@@ -1,0 +1,28 @@
+.container {
+    margin-top: 0.5rem;
+}
+
+.button-spacing {
+    margin-left: 0.5rem;
+    margin-right: 0.25rem;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+#feedback {
+    margin-top: 1rem;
+}
+
+h6 {
+    margin-top: 2rem;
+}
