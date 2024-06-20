@@ -1,0 +1,19 @@
+body {
+    background-color: green;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5%;
+}
+
+.drawnCard {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform-origin: center center;
+    width: 226px;
+    height: 314px;
+}
