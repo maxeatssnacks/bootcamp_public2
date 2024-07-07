@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
