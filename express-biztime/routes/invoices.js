@@ -48,23 +48,41 @@ invoicesRouter.post('/', async (req, res, next) => {
 
 invoicesRouter.patch('/:id', async (req, res, next) => {
     try {
-        const { id } = parseInt(req.params);
-        if (!id === 0) {
-            throw new ExpressError('Please make sure to include a id', 400);
+        // Checks if there actually is an invoice matching the id
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            throw new ExpressError('Please provide a valid invoice ID', 400);
         }
-        const { amt } = parseFloat(req.body);
-        if (!amt || isNaN(amt)) {
-            throw new ExpressError('Please make sure to include a valid amount', 400);
+
+        // Get the current invoice data
+        const result = await db.query('SELECT * FROM invoices WHERE id=$1', [id]);
+        if (result.rows.length === 0) {
+            throw new ExpressError(`No invoice found with id ${id}`, 404);
         }
-        const results = await db.query('UPDATE invoices SET amt=$1 WHERE id=$2 RETURNING id, comp_code, amt, paid, add_date, paid_date', [amt, id]);
-        if (results.rows.length === 0) {
-            throw new ExpressError(`No invoice found with an id of ${id}`, 404);
+        const invoice = result.rows[0];
+
+        // Get the amount paid from the request body
+        const amt_paid = req.body.amt;
+        if (typeof amt_paid !== 'number' || isNaN(amt_paid)) {
+            throw new ExpressError('Please provide a valid amount paid', 400);
         }
-        return res.json({ invoice: results.rows[0] });
+
+        // Calculate new values
+        const new_amt = invoice.amt - amt_paid;
+        const new_paid = new_amt <= 0 ? 'True' : null;
+        const new_paid_date = new_paid === 'True' ? new Date() : null;
+
+        // Update the invoice
+        const updateResult = await db.query(
+            'UPDATE invoices SET amt=$1, paid=$2, paid_date=$3 WHERE id=$4 RETURNING id, comp_code, amt, paid, add_date, paid_date',
+            [new_amt, new_paid, new_paid_date, id]
+        );
+
+        return res.json({ invoice: updateResult.rows[0] });
     } catch (err) {
         return next(err);
     }
-})
+});
 
 invoicesRouter.delete('/:id', async (req, res, next) => {
     try {

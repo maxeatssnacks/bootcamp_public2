@@ -1,5 +1,6 @@
 /** Database setup for BizTime. */
 
+
 const { Client } = require("pg");
 
 let DB_URI;
@@ -14,6 +15,12 @@ let db = new Client({
     connectionString: DB_URI
 });
 
-db.connect();
-
-module.exports = db;
+module.exports = {
+    connect: async () => {
+        await db.connect();
+    },
+    query: (...args) => db.query(...args),
+    end: async () => {
+        await db.end();
+    }
+};
