@@ -1,0 +1,27 @@
+.tweet {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: powderblue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.date {
+    font-style: italic;
+}
+
+.span {}
+
+.message {}
+
+.username {
+    color: grey;
+    margin: 0px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.name {
+    display: inline-block;
+    margin-right: 10px;
+}
