@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: center;
+  color: gray;
+}
+
+.Pokedex {
+  margin: 0 auto;
+}
