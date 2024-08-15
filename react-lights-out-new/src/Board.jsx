@@ -30,15 +30,14 @@ import "./Board.css";
 function Board({ nrows, ncols, chanceLightStartsOn }) {
   const [board, setBoard] = useState(createBoard());
 
-  /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   function createBoard() {
-    let initialBoard = [];
-    // TODO: create array-of-arrays of true/false values
-    return initialBoard;
+    return Array.from({ length: nrows }, () =>
+      Array.from({ length: ncols }, () => Math.random() < chanceLightStartsOn)
+    );
   }
 
   function hasWon() {
-    // TODO: check the board in state to determine whether the player has won.
+    return board.every(row => row.every(cell => !cell));
   }
 
   function flipCellsAround(coord) {
@@ -46,28 +45,43 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
       const [y, x] = coord.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
-        // if this coord is actually on board, flip it
-
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
           boardCopy[y][x] = !boardCopy[y][x];
         }
       };
 
-      // TODO: Make a (deep) copy of the oldBoard
+      const newBoard = oldBoard.map(row => [...row]);
+      flipCell(y, x, newBoard);
+      flipCell(y, x - 1, newBoard);
+      flipCell(y, x + 1, newBoard);
+      flipCell(y - 1, x, newBoard);
+      flipCell(y + 1, x, newBoard);
 
-      // TODO: in the copy, flip this cell and the cells around it
-
-      // TODO: return the copy
+      return newBoard;
     });
   }
 
-  // if the game is won, just show a winning msg & render nothing else
+  if (hasWon()) {
+    return <div>You Won!</div>;
+  }
 
-  // TODO
-
-  // make table board
-
-  // TODO
+  return (
+    <table className="Board">
+      <tbody>
+        {board.map((row, y) => (
+          <tr key={y}>
+            {row.map((cell, x) => (
+              <Cell
+                key={`${y}-${x}`}
+                isLit={cell}
+                flipCellsAroundMe={() => flipCellsAround(`${y}-${x}`)}
+              />
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
 export default Board;
