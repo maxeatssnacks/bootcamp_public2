@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Card"
+  >
+    <h4
+      class="Card-title"
+    >
+      Test Caption
+    </h4>
+    <img
+      alt="Test Caption"
+      class="Card-image"
+      src="test-image.jpg"
+    />
+    <small
+      class="Card-small"
+    >
+      Image 1 of 3.
+    </small>
+  </div>
+</DocumentFragment>
+`;
