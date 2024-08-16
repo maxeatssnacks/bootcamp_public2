@@ -1,0 +1,29 @@
+.NewTodoForm {
+    margin-bottom: 20px;
+}
+
+.NewTodoForm form {
+    display: flex;
+    gap: 10px;
+}
+
+.NewTodoForm input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.NewTodoForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.NewTodoForm button:hover {
+    background-color: #45a049;
+}

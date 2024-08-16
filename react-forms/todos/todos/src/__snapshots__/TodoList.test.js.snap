@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="TodoApp"
+  >
+    <h3>
+      Let's Git R Done
+    </h3>
+    <div
+      class="NewTodoForm"
+    >
+      <form>
+        <input
+          id="task"
+          name="task"
+          placeholder="Enter a task here"
+          type="text"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Add Task
+        </button>
+      </form>
+    </div>
+    <ul
+      class="TodoList"
+    />
+  </div>
+</DocumentFragment>
+`;

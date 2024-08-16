@@ -1,0 +1,17 @@
+.TodoApp {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.TodoApp h3 {
+    font-size: 32px;
+    text-align: center;
+    color: #b7b26b;
+}
+
+.TodoList {
+    list-style-type: none;
+    padding: 0;
+}
