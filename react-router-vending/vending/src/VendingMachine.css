@@ -1,0 +1,42 @@
+/* VendingMachine.css */
+
+/* Style for the main navigation */
+nav {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+/* Style for the snack list on the home page */
+.snack-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.snack-list li {
+    margin-bottom: 10px;
+}
+
+.snack-list a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.snack-list a:hover {
+    text-decoration: underline;
+}
